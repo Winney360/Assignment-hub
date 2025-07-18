@@ -4,13 +4,13 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import LoadingSpinner from '../components/LoadingSpinner';
 import AssignmentCard from '../components/AssignmentCard';
-import { 
-  PlusIcon, 
-  PrinterIcon, 
+import {
+  PlusIcon,
+  PrinterIcon,
   ShareIcon,
-  ClipboardListIcon,
+  ClipboardDocumentListIcon,
   ExclamationCircleIcon
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 
 const ClassView = () => {
   const { classId } = useParams();

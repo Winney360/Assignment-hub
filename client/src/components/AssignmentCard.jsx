@@ -2,10 +2,10 @@ import React from 'react';
 import { format, isAfter, isBefore } from 'date-fns';
 import { 
   ClockIcon, 
-  DocumentDownloadIcon, 
-  ExclamationIcon,
+  ArrowDownTrayIcon, 
+  ExclamationCircleIcon,
   CheckCircleIcon
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 import CountdownTimer from './CountdownTimer';
 
 const AssignmentCard = ({ assignment, isStudent = false }) => {

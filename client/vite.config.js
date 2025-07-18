@@ -11,4 +11,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  esbuild: {
+    loader: 'jsx',
+    include: /\.(js|jsx)$/, // tell esbuild to treat .js files as .jsx
+  },
+
 })

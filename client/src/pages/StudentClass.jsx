@@ -6,12 +6,12 @@ import toast from 'react-hot-toast';
 import LoadingSpinner from '../components/LoadingSpinner';
 import AssignmentCard from '../components/AssignmentCard';
 import QRCode from 'react-qr-code';
-import { 
-  BookmarkIcon, 
-  ShareIcon, 
-  QrcodeIcon,
-  ExclamationCircleIcon 
-} from '@heroicons/react/outline';
+import {
+  BookmarkIcon,
+  ShareIcon,
+  QrCodeIcon,
+  ExclamationCircleIcon
+} from '@heroicons/react/24/outline';
 
 const StudentClass = () => {
   const { passcode } = useParams();

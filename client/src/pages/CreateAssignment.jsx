@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { format } from 'date-fns';
-import { DocumentAddIcon, UploadIcon } from '@heroicons/react/outline';
+import { DocumentPlusIcon, ArrowUpTrayIcon } from '@heroicons/react/24/outline';
 
 const CreateAssignment = () => {
   const [formData, setFormData] = useState({

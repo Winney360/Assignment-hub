@@ -5,7 +5,7 @@ import axios from 'axios';
 import QRCode from 'react-qr-code';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { format } from 'date-fns';
-import { PrinterIcon } from '@heroicons/react/outline';
+import { PrinterIcon } from '@heroicons/react/24/outline';
 
 const PrintSlip = () => {
   const { classId } = useParams();

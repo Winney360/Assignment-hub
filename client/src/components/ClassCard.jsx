@@ -6,7 +6,7 @@ import {
   EyeIcon, 
   PrinterIcon,
   ShareIcon 
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 
 const ClassCard = ({ classData, isTeacher = false }) => {
   const assignmentCount = classData.assignments?.length || 0;

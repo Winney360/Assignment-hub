@@ -5,12 +5,12 @@ import { useTheme } from '../contexts/ThemeContext';
 import { 
   BookOpenIcon, 
   UserIcon, 
-  LogoutIcon, 
-  MenuIcon, 
-  XIcon,
+  ArrowRightOnRectangleIcon, 
+  Bars3Icon, 
+  XMarkIcon,
   SunIcon,
   MoonIcon
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 
 const Navbar = () => {
   const { user, isAuthenticated, logout } = useAuth();
@@ -110,7 +110,7 @@ const Navbar = () => {
             {isMenuOpen ? (
               <XIcon className="h-6 w-6 text-gray-700" />
             ) : (
-              <MenuIcon className="h-6 w-6 text-gray-700" />
+              <Bars3Icon className="h-6 w-6 text-gray-700" />
             )}
           </button>
         </div>

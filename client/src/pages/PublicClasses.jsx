@@ -4,11 +4,11 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ClassCard from '../components/ClassCard';
-import { 
-  SearchIcon, 
-  AcademicCapIcon, 
-  KeyIcon 
-} from '@heroicons/react/outline';
+import {
+  MagnifyingGlassIcon,
+  AcademicCapIcon,
+  KeyIcon
+} from '@heroicons/react/24/outline';
 
 const PublicClasses = () => {
   const [searchTerm, setSearchTerm] = useState('');

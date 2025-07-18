@@ -6,13 +6,13 @@ import { useAuth } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ClassCard from '../components/ClassCard';
 import AssignmentCard from '../components/AssignmentCard';
-import { 
-  PlusIcon, 
-  AcademicCapIcon, 
-  ClipboardListIcon,
-  UsersIcon,
-  TrendingUpIcon 
-} from '@heroicons/react/outline';
+import {
+  PlusIcon,
+  AcademicCapIcon,
+  ClipboardDocumentListIcon,
+  UserGroupIcon,
+  ChartBarIcon
+} from '@heroicons/react/24/outline';
 
 const Dashboard = () => {
   const { user } = useAuth();

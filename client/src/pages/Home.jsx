@@ -5,10 +5,10 @@ import {
   BookOpenIcon, 
   UserGroupIcon, 
   ClockIcon, 
-  DeviceMobileIcon,
+  DevicePhoneMobileIcon,
   PrinterIcon,
   ShareIcon 
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 
 const Home = () => {
   const { isAuthenticated } = useAuth();
@@ -30,7 +30,7 @@ const Home = () => {
       description: 'Built-in countdown timers help students stay aware of assignment deadlines.'
     },
     {
-      icon: DeviceMobileIcon,
+      icon: DevicePhoneMobileIcon,
       title: 'Mobile Friendly',
       description: 'Works perfectly on smartphones and tablets for on-the-go access.'
     },
