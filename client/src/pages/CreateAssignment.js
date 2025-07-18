@@ -169,7 +169,7 @@ const CreateAssignment = () => {
                 onChange={handleChange}
               />
               {errors.title && <p className="form-error">{errors.title}</p>}
-              }
+              
             </div>
 
             <div>
@@ -202,7 +202,7 @@ const CreateAssignment = () => {
                 <option value="Other">Other</option>
               </select>
               {errors.subject && <p className="form-error">{errors.subject}</p>}
-              }
+              
             </div>
           </div>
 
@@ -226,7 +226,7 @@ const CreateAssignment = () => {
               ))}
             </select>
             {errors.classId && <p className="form-error">{errors.classId}</p>}
-            }
+            
           </div>
 
           <div>
@@ -244,7 +244,7 @@ const CreateAssignment = () => {
               onChange={handleChange}
             />
             {errors.description && <p className="form-error">{errors.description}</p>}
-            }
+            
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -279,7 +279,7 @@ const CreateAssignment = () => {
                 onChange={handleChange}
               />
               {errors.deadline && <p className="form-error">{errors.deadline}</p>}
-              }
+              
             </div>
 
             <div>
@@ -296,7 +296,7 @@ const CreateAssignment = () => {
                 onChange={handleChange}
               />
               {errors.expiresAt && <p className="form-error">{errors.expiresAt}</p>}
-              }
+              
               <p className="text-sm text-gray-600 mt-1">
                 When this assignment will no longer be visible
               </p>

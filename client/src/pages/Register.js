@@ -58,6 +58,7 @@ const Register = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+
     // Clear error when user starts typing
     if (errors[e.target.name]) {
       setErrors({
@@ -93,7 +94,6 @@ const Register = () => {
               onChange={handleChange}
             />
             {errors.name && <p className="form-error">{errors.name}</p>}
-            }
           </div>
 
           <div>
@@ -111,7 +111,6 @@ const Register = () => {
               onChange={handleChange}
             />
             {errors.email && <p className="form-error">{errors.email}</p>}
-            }
           </div>
 
           <div>
@@ -142,7 +141,6 @@ const Register = () => {
               </button>
             </div>
             {errors.password && <p className="form-error">{errors.password}</p>}
-            }
           </div>
 
           <div>
@@ -172,8 +170,9 @@ const Register = () => {
                 )}
               </button>
             </div>
-            {errors.confirmPassword && <p className="form-error">{errors.confirmPassword}</p>}
-            }
+            {errors.confirmPassword && (
+              <p className="form-error">{errors.confirmPassword}</p>
+            )}
           </div>
 
           <button

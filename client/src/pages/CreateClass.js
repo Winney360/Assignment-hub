@@ -75,7 +75,7 @@ const CreateClass = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
@@ -112,7 +112,6 @@ const CreateClass = () => {
               onChange={handleChange}
             />
             {errors.name && <p className="form-error">{errors.name}</p>}
-            }
           </div>
 
           <div>
@@ -145,7 +144,6 @@ const CreateClass = () => {
               <option value="Other">Other</option>
             </select>
             {errors.subject && <p className="form-error">{errors.subject}</p>}
-            }
           </div>
 
           <div>
@@ -176,7 +174,6 @@ const CreateClass = () => {
               </button>
             </div>
             {errors.passcode && <p className="form-error">{errors.passcode}</p>}
-            }
             <p className="text-sm text-gray-600 mt-1">
               Students will use this passcode to access the class. Keep it simple and memorable.
             </p>
