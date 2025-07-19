@@ -53,7 +53,7 @@ const Home = () => {
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
             Welcome to{' '}
-            <span className="gradient-bg bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               AssignmentHub
             </span>
           </h1>
@@ -136,7 +136,7 @@ const Home = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-primary-600 font-semibold">1</span>
+                  <span className="text-blue-600 font-semibold">1</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">Register & Login</h4>
@@ -145,7 +145,7 @@ const Home = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-primary-600 font-semibold">2</span>
+                  <span className="text-blue-600 font-semibold">2</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">Create Classes</h4>
@@ -154,7 +154,7 @@ const Home = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-primary-600 font-semibold">3</span>
+                  <span className="text-blue-600 font-semibold">3</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">Post Assignments</h4>
@@ -163,7 +163,7 @@ const Home = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-primary-600 font-semibold">4</span>
+                  <span className="text-blue-600 font-semibold">4</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">Share with Students</h4>
@@ -181,7 +181,7 @@ const Home = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center">
-                  <span className="text-secondary-600 font-semibold">1</span>
+                  <span className="text-purple-600 font-semibold">1</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">Get Passcode</h4>
@@ -190,7 +190,7 @@ const Home = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center">
-                  <span className="text-secondary-600 font-semibold">2</span>
+                  <span className="text-purple-600 font-semibold">2</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">Enter Passcode</h4>
@@ -199,7 +199,7 @@ const Home = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center">
-                  <span className="text-secondary-600 font-semibold">3</span>
+                  <span className="text-purple-600 font-semibold">3</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">View Assignments</h4>
@@ -208,7 +208,7 @@ const Home = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center">
-                  <span className="text-secondary-600 font-semibold">4</span>
+                  <span className="text-purple-600 font-semibold">4</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">Download & Complete</h4>
@@ -233,7 +233,7 @@ const Home = () => {
           {isAuthenticated ? (
             <Link 
               to="/dashboard" 
-              className="bg-white text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200"
             >
               Go to Dashboard
             </Link>
@@ -241,13 +241,13 @@ const Home = () => {
             <>
               <Link 
                 to="/register" 
-                className="bg-white text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200"
+                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200"
               >
                 Register as Teacher
               </Link>
               <Link 
                 to="/classes" 
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-primary-600 transition-colors duration-200"
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors duration-200"
               >
                 Browse Classes
               </Link>

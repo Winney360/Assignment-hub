@@ -20,7 +20,7 @@ const StudentClass = () => {
 
   const { data: classData, isLoading, error } = useQuery(
     ['studentClass', passcode],
-    () => axios.get(`${process.env.REACT_APP_API_URL}/api/student/class/${passcode}`).then(res => res.data),
+    () => axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/student/class/${passcode}`).then(res => res.data),
     {
       retry: false,
       onError: (error) => {

@@ -9,7 +9,8 @@ import {
   Bars3Icon, 
   XMarkIcon,
   SunIcon,
-  MoonIcon
+  MoonIcon,
+  PowerIcon
 } from '@heroicons/react/24/outline';
 
 const Navbar = () => {
@@ -95,7 +96,7 @@ const Navbar = () => {
                   onClick={handleLogout}
                   className="flex items-center space-x-1 text-gray-700 hover:text-danger-600 transition-colors duration-200"
                 >
-                  <LogoutIcon className="h-5 w-5" />
+                  <ArrowRightOnRectangleIcon className="h-5 w-5" />
                   <span>Logout</span>
                 </button>
               </div>
@@ -108,7 +109,7 @@ const Navbar = () => {
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
           >
             {isMenuOpen ? (
-              <XIcon className="h-6 w-6 text-gray-700" />
+              <XMarkIcon className="h-6 w-6 text-gray-700" />
             ) : (
               <Bars3Icon className="h-6 w-6 text-gray-700" />
             )}

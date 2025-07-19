@@ -16,7 +16,7 @@ const CreateClass = () => {
   const queryClient = useQueryClient();
 
   const createClassMutation = useMutation(
-    (classData) => axios.post(`${process.env.REACT_APP_API_URL}/api/classes`, classData),
+    (classData) => axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/classes`, classData),
     {
       onSuccess: () => {
         queryClient.invalidateQueries('classes');
@@ -31,7 +31,7 @@ const CreateClass = () => {
   );
 
   const generatePasscodeMutation = useMutation(
-    () => axios.post(`${process.env.REACT_APP_API_URL}/api/classes/generate-passcode`),
+    () => axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/classes/generate-passcode`),
     {
       onSuccess: (response) => {
         setFormData(prev => ({ ...prev, passcode: response.data.passcode }));
@@ -169,7 +169,7 @@ const CreateClass = () => {
                 disabled={generatePasscodeMutation.isLoading}
                 className="btn-outline flex items-center space-x-2"
               >
-                <RefreshIcon className={`h-4 w-4 ${generatePasscodeMutation.isLoading ? 'animate-spin' : ''}`} />
+                <ArrowPathIcon className={`h-4 w-4 ${generatePasscodeMutation.isLoading ? 'animate-spin' : ''}`} />
                 <span>Generate</span>
               </button>
             </div>

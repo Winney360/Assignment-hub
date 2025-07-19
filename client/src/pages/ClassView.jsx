@@ -17,12 +17,12 @@ const ClassView = () => {
 
   const { data: classData, isLoading, error } = useQuery(
     ['class', classId],
-    () => axios.get(`${process.env.REACT_APP_API_URL}/api/classes/${classId}`).then(res => res.data)
+    () => axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/classes/${classId}`).then(res => res.data)
   );
 
   const { data: assignments, isLoading: assignmentsLoading } = useQuery(
     ['classAssignments', classId],
-    () => axios.get(`${process.env.REACT_APP_API_URL}/api/assignments/class/${classId}`).then(res => res.data)
+    () => axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/assignments/class/${classId}`).then(res => res.data)
   );
 
   if (isLoading || assignmentsLoading) {

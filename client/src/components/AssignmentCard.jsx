@@ -26,7 +26,7 @@ const AssignmentCard = ({ assignment, isStudent = false }) => {
 
   const handleDownload = () => {
     if (assignment.file) {
-      const fileUrl = `${process.env.REACT_APP_API_URL}/uploads/${assignment.file.filename}`;
+      const fileUrl = `${import.meta.env.VITE_API_BASE_URL}/uploads/${assignment.file.filename}`;
       window.open(fileUrl, '_blank');
     }
   };

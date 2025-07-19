@@ -15,6 +15,7 @@ import StudentClass from './pages/StudentClass';
 import PublicClasses from './pages/PublicClasses';
 import PrintSlip from './pages/PrintSlip';
 import ProtectedRoute from './components/ProtectedRoute';
+import './index.css';
 
 function App() {
   return (

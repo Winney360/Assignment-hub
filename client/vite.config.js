@@ -16,4 +16,10 @@ export default defineConfig({
     include: /\.(js|jsx)$/, // tell esbuild to treat .js files as .jsx
   },
 
+  server: {
+    proxy: {
+      '/api': 'http://localhost:5000',
+    },
+  },
+
 })

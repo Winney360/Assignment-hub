@@ -17,7 +17,7 @@ const PublicClasses = () => {
 
   const { data: classes, isLoading, error } = useQuery(
     'publicClasses',
-    () => axios.get(`${process.env.REACT_APP_API_URL}/api/student/classes/public`).then(res => res.data),
+    () => axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/student/classes/public`).then(res => res.data),
     {
       onError: (error) => {
         toast.error('Failed to load classes');

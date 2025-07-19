@@ -25,7 +25,7 @@ const CreateAssignment = () => {
 
   const { data: classes, isLoading: classesLoading } = useQuery(
     'classes',
-    () => axios.get(`${process.env.REACT_APP_API_URL}/api/classes`).then(res => res.data)
+    () => axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/classes`).then(res => res.data)
   );
 
   const createAssignmentMutation = useMutation(
@@ -44,7 +44,7 @@ const CreateAssignment = () => {
         formDataToSend.append('file', selectedFile);
       }
       
-      return axios.post(`${process.env.REACT_APP_API_URL}/api/assignments`, formDataToSend, {
+      return axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/assignments`, formDataToSend, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
     },
@@ -316,7 +316,7 @@ const CreateAssignment = () => {
                 onChange={handleFileChange}
                 className="form-input"
               />
-              <UploadIcon className="h-5 w-5 text-gray-400" />
+              <ArrowUpTrayIcon className="h-5 w-5 text-gray-400" />
             </div>
             {selectedFile && (
               <p className="text-sm text-green-600 mt-1">

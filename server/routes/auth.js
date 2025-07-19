@@ -8,6 +8,7 @@ const router = express.Router();
 
 // Register teacher
 router.post('/register', async (req, res) => {
+  console.log('Incoming Registration',req.body);
   try {
     const { name, email, password } = req.body;
 
@@ -17,11 +18,12 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'User already exists with this email' });
     }
 
+
     // Create new user
     const user = new User({
       name,
       email,
-      password
+      password,
     });
 
     await user.save();
@@ -50,6 +52,7 @@ router.post('/register', async (req, res) => {
 
 // Login teacher
 router.post('/login', async (req, res) => {
+  console.log("Login request body:", req.body);
   try {
     const { email, password } = req.body;
 

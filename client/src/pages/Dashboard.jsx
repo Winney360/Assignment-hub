@@ -11,7 +11,7 @@ import {
   AcademicCapIcon,
   ClipboardDocumentListIcon,
   UserGroupIcon,
-  ChartBarIcon
+  ArrowTrendingUpIcon
 } from '@heroicons/react/24/outline';
 
 const Dashboard = () => {
@@ -19,12 +19,12 @@ const Dashboard = () => {
 
   const { data: classes, isLoading: classesLoading } = useQuery(
     'classes',
-    () => axios.get(`${process.env.REACT_APP_API_URL}/api/classes`).then(res => res.data)
+    () => axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/classes`).then(res => res.data)
   );
 
   const { data: assignments, isLoading: assignmentsLoading } = useQuery(
     'assignments',
-    () => axios.get(`${process.env.REACT_APP_API_URL}/api/assignments`).then(res => res.data)
+    () => axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/assignments`).then(res => res.data)
   );
 
   if (classesLoading || assignmentsLoading) {
@@ -59,7 +59,7 @@ const Dashboard = () => {
             New Class
           </Link>
           <Link to="/create-assignment" className="btn-secondary">
-            <ClipboardListIcon className="h-5 w-5 mr-2" />
+            <ClipboardDocumentListIcon className="h-5 w-5 mr-2" />
             New Assignment
           </Link>
         </div>
@@ -82,7 +82,7 @@ const Dashboard = () => {
         <div className="card">
           <div className="flex items-center">
             <div className="p-3 bg-secondary-100 rounded-lg">
-              <ClipboardListIcon className="h-6 w-6 text-secondary-600" />
+              <ClipboardDocumentListIcon className="h-6 w-6 text-secondary-600" />
             </div>
             <div className="ml-4">
               <p className="text-sm text-gray-600">Total Assignments</p>
@@ -94,7 +94,7 @@ const Dashboard = () => {
         <div className="card">
           <div className="flex items-center">
             <div className="p-3 bg-accent-100 rounded-lg">
-              <TrendingUpIcon className="h-6 w-6 text-accent-600" />
+              <ArrowTrendingUpIcon className="h-6 w-6 text-accent-600" />
             </div>
             <div className="ml-4">
               <p className="text-sm text-gray-600">Active Assignments</p>
@@ -148,7 +148,7 @@ const Dashboard = () => {
 
           {totalAssignments === 0 ? (
             <div className="card text-center">
-              <ClipboardListIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+              <ClipboardDocumentListIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">
                 No assignments yet
               </h3>
@@ -182,7 +182,7 @@ const Dashboard = () => {
           </Link>
           
           <Link to="/create-assignment" className="flex items-center p-4 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-colors duration-200">
-            <ClipboardListIcon className="h-8 w-8 text-secondary-600 mr-3" />
+            <ClipboardDocumentListIcon className="h-8 w-8 text-secondary-600 mr-3" />
             <div>
               <p className="font-medium text-secondary-900">Create Assignment</p>
               <p className="text-sm text-secondary-600">Add new assignment</p>
@@ -190,7 +190,7 @@ const Dashboard = () => {
           </Link>
           
           <Link to="/classes" className="flex items-center p-4 bg-accent-50 rounded-lg hover:bg-accent-100 transition-colors duration-200">
-            <UsersIcon className="h-8 w-8 text-accent-600 mr-3" />
+            <UserGroupIcon className="h-8 w-8 text-accent-600 mr-3" />
             <div>
               <p className="font-medium text-accent-900">Public Classes</p>
               <p className="text-sm text-accent-600">View all classes</p>
@@ -198,7 +198,7 @@ const Dashboard = () => {
           </Link>
           
           <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-            <TrendingUpIcon className="h-8 w-8 text-gray-600 mr-3" />
+            <ArrowTrendingUpIcon className="h-8 w-8 text-gray-600 mr-3" />
             <div>
               <p className="font-medium text-gray-900">Analytics</p>
               <p className="text-sm text-gray-600">Coming soon</p>

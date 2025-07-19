@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
   const verifyToken = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`);
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`);
       dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
     } catch (error) {
       localStorage.removeItem('token');
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: 'LOGIN_START' });
       
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
         email,
         password
       });
@@ -79,13 +79,16 @@ export const AuthProvider = ({ children }) => {
   const register = async (name, email, password) => {
     try {
       dispatch({ type: 'LOGIN_START' });
+      console.log('Registering with:', { name, email, password });
+      console.log('API URL:', import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000');
       
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/register`, {
         name,
         email,
         password
       });
 
+      console.log('Full response:', response);
       const { token, user } = response.data;
       
       localStorage.setItem('token', token);

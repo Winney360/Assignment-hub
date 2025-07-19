@@ -50,6 +50,8 @@ const Register = () => {
     const result = await register(formData.name, formData.email, formData.password);
     if (result.success) {
       navigate('/dashboard');
+    }else {
+    setErrors({ ...errors, form: result.error }); // Display backend error
     }
   };
 
@@ -79,6 +81,9 @@ const Register = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+          {errors.form && (
+              <div className="form-error text-center mb-4">{errors.form}</div>
+           )}
           <div>
             <label htmlFor="name" className="form-label">
               Full Name
@@ -134,7 +139,7 @@ const Register = () => {
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
-                  <EyeOffIcon className="h-5 w-5 text-gray-400" />
+                  <EyeSlashIcon className="h-5 w-5 text-gray-400" />
                 ) : (
                   <EyeIcon className="h-5 w-5 text-gray-400" />
                 )}
@@ -164,7 +169,7 @@ const Register = () => {
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
               >
                 {showConfirmPassword ? (
-                  <EyeOffIcon className="h-5 w-5 text-gray-400" />
+                  <EyeSlashIcon className="h-5 w-5 text-gray-400" />
                 ) : (
                   <EyeIcon className="h-5 w-5 text-gray-400" />
                 )}

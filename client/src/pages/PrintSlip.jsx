@@ -12,7 +12,7 @@ const PrintSlip = () => {
 
   const { data: printData, isLoading, error } = useQuery(
     ['printSlip', classId],
-    () => axios.get(`${process.env.REACT_APP_API_URL}/api/print/slip/${classId}`).then(res => res.data)
+    () => axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/print/slip/${classId}`).then(res => res.data)
   );
 
   const handlePrint = () => {
