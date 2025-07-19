@@ -75,7 +75,7 @@ const ClassCard = ({ classData, isTeacher = false }) => {
         {/* Teacher Info (for students) */}
         {!isTeacher && classData.teacher && (
           <div className="text-sm text-gray-600">
-            <span className="font-medium">Teacher:</span> {classData.teacher}
+            <span className="font-medium">Teacher:</span> {classData.teacher.name}
           </div>
         )}
 

@@ -114,7 +114,7 @@ const PublicClasses = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="relative">
-            <SearchIcon className="h-5 w-5 text-gray-400 absolute left-3 top-3" />
+            <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute left-3 top-3" />
             <input
               type="text"
               placeholder="Search classes, teachers, or passcodes..."

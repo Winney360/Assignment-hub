@@ -164,7 +164,7 @@ const StudentClass = () => {
               className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-200"
               title="Show QR code"
             >
-              <QrcodeIcon className="h-5 w-5" />
+              <QrCodeIcon className="h-5 w-5" />
             </button>
           </div>
         </div>

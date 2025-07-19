@@ -374,7 +374,7 @@ const CreateAssignment = () => {
               disabled={createAssignmentMutation.isLoading}
               className="btn-primary flex-1 flex items-center justify-center space-x-2"
             >
-              <DocumentAddIcon className="h-5 w-5" />
+              <ArrowUpTrayIcon className="h-5 w-5" />
               <span>
                 {createAssignmentMutation.isLoading ? 'Creating...' : 'Create Assignment'}
               </span>

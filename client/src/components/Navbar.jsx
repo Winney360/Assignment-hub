@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
-import { 
-  BookOpenIcon, 
-  UserIcon, 
-  ArrowRightOnRectangleIcon, 
-  Bars3Icon, 
+import {
+  BookOpenIcon,
+  UserIcon,
+  ArrowRightOnRectangleIcon,
+  Bars3Icon,
   XMarkIcon,
   SunIcon,
   MoonIcon,
@@ -62,7 +62,7 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
-            
+
             {authItems.map((item) => (
               <Link
                 key={item.path}
@@ -130,7 +130,7 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
-              
+
               {authItems.map((item) => (
                 <Link
                   key={item.path}
@@ -170,7 +170,7 @@ const Navbar = () => {
                     onClick={handleLogout}
                     className="flex items-center px-4 py-2 text-danger-600 hover:bg-danger-50 rounded-lg transition-colors duration-200"
                   >
-                    <LogoutIcon className="h-5 w-5 mr-2" />
+                    <PowerIcon className="h-5 w-5 mr-2" />
                     Logout
                   </button>
                 </>
