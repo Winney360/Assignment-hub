@@ -62,7 +62,7 @@ const AssignmentCard = ({ assignment, isStudent = false }) => {
         {/* File Download */}
         {assignment.file && (
           <div className="flex items-center space-x-2">
-            <DocumentDownloadIcon className="h-5 w-5 text-primary-600" />
+            <ArrowDownTrayIcon className="h-5 w-5 text-primary-600" />
             <button
               onClick={handleDownload}
               className="text-primary-600 hover:text-primary-700 font-medium"

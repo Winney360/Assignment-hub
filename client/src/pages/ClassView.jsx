@@ -127,7 +127,7 @@ const ClassView = () => {
         <div className="card">
           <div className="flex items-center">
             <div className="p-3 bg-primary-100 rounded-lg">
-              <ClipboardListIcon className="h-6 w-6 text-primary-600" />
+              <ClipboardDocumentListIcon className="h-6 w-6 text-primary-600" />
             </div>
             <div className="ml-4">
               <p className="text-sm text-gray-600">Total Assignments</p>
@@ -139,7 +139,7 @@ const ClassView = () => {
         <div className="card">
           <div className="flex items-center">
             <div className="p-3 bg-accent-100 rounded-lg">
-              <ClipboardListIcon className="h-6 w-6 text-accent-600" />
+              <ClipboardDocumentListIcon className="h-6 w-6 text-accent-600" />
             </div>
             <div className="ml-4">
               <p className="text-sm text-gray-600">Active Assignments</p>
@@ -156,7 +156,7 @@ const ClassView = () => {
         <div className="card">
           <div className="flex items-center">
             <div className="p-3 bg-warning-100 rounded-lg">
-              <ClipboardListIcon className="h-6 w-6 text-warning-600" />
+              <ClipboardDocumentListIcon className="h-6 w-6 text-warning-600" />
             </div>
             <div className="ml-4">
               <p className="text-sm text-gray-600">Expired Assignments</p>
