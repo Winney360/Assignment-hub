@@ -1,4 +1,5 @@
 import { defineConfig } from '@tailwindcss/cli'
+darkMode: 'class'
 
 export default defineConfig({
   content: [

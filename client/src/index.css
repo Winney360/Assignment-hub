@@ -120,4 +120,12 @@ code {
   .container-responsive {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+  .card {
+  @apply rounded-xl p-6 shadow-sm bg-gray-100 text-gray-800;
+}
+
+.dark .card {
+  @apply bg-black text-white;
+}
+
 }

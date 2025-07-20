@@ -51,13 +51,13 @@ const Home = () => {
       {/* Hero Section */}
       <div className="text-center space-y-8">
         <div className="space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">
             Welcome to{' '}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               AssignmentHub
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             A simple, offline-friendly platform for Kenyan high school teachers 
             to share assignments with students during holidays. No complicated 
             sign-ups for students - just enter a passcode and get started!
@@ -90,10 +90,10 @@ const Home = () => {
       {/* Features Section */}
       <div className="space-y-12">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Why Choose AssignmentHub?
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Built specifically for the Kenyan education system, focusing on 
             simplicity and accessibility.
           </p>
@@ -101,28 +101,28 @@ const Home = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="card">
+            <div key={index} className="card bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 ">
               <div className="flex items-center space-x-4 mb-4">
-                <div className="p-3 bg-primary-100 rounded-lg">
-                  <feature.icon className="h-6 w-6 text-primary-600" />
+                <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg">
+                  <feature.icon className="h-6 w-6 text-primary-600 dark:text-primary-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   {feature.title}
                 </h3>
               </div>
-              <p className="text-gray-600">{feature.description}</p>
+              <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* How It Works Section */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 md:p-12">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             How It Works
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-gray-300">
             Simple steps to get started with AssignmentHub
           </p>
         </div>
@@ -134,42 +134,29 @@ const Home = () => {
               For Teachers
             </h3>
             <div className="space-y-4">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold">1</span>
+              {[
+                'Register & Login',
+                'Create Classes',
+                'Post Assignments',
+                'Share with Students'
+              ].map((step, i) => (
+                <div key={i} className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-800 rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 dark:text-blue-400 font-semibold">{i + 1}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 dark:text-white">{step}</h4>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {[
+                        'Create your teacher account and log in',
+                        'Set up classes with unique passcodes',
+                        'Add assignments with files, deadlines, and instructions',
+                        'Print slips or send passcodes via SMS'
+                      ][i]}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">Register & Login</h4>
-                  <p className="text-gray-600">Create your teacher account and log in</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold">2</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">Create Classes</h4>
-                  <p className="text-gray-600">Set up classes with unique passcodes</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold">3</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">Post Assignments</h4>
-                  <p className="text-gray-600">Add assignments with files, deadlines, and instructions</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold">4</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">Share with Students</h4>
-                  <p className="text-gray-600">Print slips or send passcodes via SMS</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -179,49 +166,36 @@ const Home = () => {
               For Students
             </h3>
             <div className="space-y-4">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 font-semibold">1</span>
+              {[
+                'Get Passcode',
+                'Enter Passcode',
+                'View Assignments',
+                'Download & Complete'
+              ].map((step, i) => (
+                <div key={i} className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center">
+                    <span className="text-purple-600 dark:text-purple-400 font-semibold">{i + 1}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 dark:text-white">{step}</h4>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {[
+                        'Receive class passcode from your teacher',
+                        'Type the passcode to access your class',
+                        'See all available assignments and deadlines',
+                        'Download files and complete assignments'
+                      ][i]}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">Get Passcode</h4>
-                  <p className="text-gray-600">Receive class passcode from your teacher</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 font-semibold">2</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">Enter Passcode</h4>
-                  <p className="text-gray-600">Type the passcode to access your class</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 font-semibold">3</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">View Assignments</h4>
-                  <p className="text-gray-600">See all available assignments and deadlines</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 font-semibold">4</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">Download & Complete</h4>
-                  <p className="text-gray-600">Download files and complete assignments</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       {/* CTA Section */}
-      <div className="text-center gradient-bg rounded-2xl p-8 md:p-12 text-white">
+      <div className="text-center gradient-bg dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 md:p-12 text-white">
         <h2 className="text-3xl font-bold mb-4">
           Ready to Get Started?
         </h2>

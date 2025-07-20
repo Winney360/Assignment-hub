@@ -1,14 +1,16 @@
 import React from 'react';
 import { format, isAfter, isBefore } from 'date-fns';
-import { 
-  ClockIcon, 
-  ArrowDownTrayIcon, 
+import {
+  ClockIcon,
+  ArrowDownTrayIcon,
   ExclamationCircleIcon,
-  CheckCircleIcon
+  TrashIcon, // ✅ added
 } from '@heroicons/react/24/outline';
 import CountdownTimer from './CountdownTimer';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
-const AssignmentCard = ({ assignment, isStudent = false }) => {
+const AssignmentCard = ({ assignment, isStudent = false, onDelete }) => {
   const now = new Date();
   const deadline = new Date(assignment.deadline);
   const isExpired = isAfter(now, deadline);
@@ -31,8 +33,37 @@ const AssignmentCard = ({ assignment, isStudent = false }) => {
     }
   };
 
+  // ✅ Handle delete for teachers
+  const handleDelete = async () => {
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_API_BASE_URL}/api/assignments/${assignment._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
+      toast.success('Assignment deleted successfully');
+      if (onDelete) onDelete(); // trigger a refetch or removal
+    } catch (error) {
+      toast.error('Failed to delete assignment');
+    }
+  };
+
   return (
-    <div className="card animate-fade-in">
+    <div className="card animate-fade-in relative">
+      {/* 🗑️ Delete icon top-right (teacher only) */}
+      {!isStudent && (
+        <button
+          onClick={handleDelete}
+          className="absolute top-2 right-2 text-red-500 hover:text-red-700"
+          title="Delete Assignment"
+        >
+          <TrashIcon className="w-5 h-5" />
+        </button>
+      )}
+
       <div className="card-header">
         <div className="flex justify-between items-start">
           <div>
@@ -55,9 +86,7 @@ const AssignmentCard = ({ assignment, isStudent = false }) => {
         </div>
 
         {/* Countdown Timer */}
-        {!isExpired && (
-          <CountdownTimer deadline={deadline} />
-        )}
+        {!isExpired && <CountdownTimer deadline={deadline} />}
 
         {/* File Download */}
         {assignment.file && (
@@ -87,19 +116,15 @@ const AssignmentCard = ({ assignment, isStudent = false }) => {
         {/* Teacher Notes (only for teachers) */}
         {!isStudent && assignment.teacherNotes && (
           <div className="bg-yellow-50 p-4 rounded-lg">
-            <h4 className="font-medium text-yellow-900 mb-2">
-              Teacher Notes:
-            </h4>
-            <p className="text-yellow-800 text-sm">
-              {assignment.teacherNotes}
-            </p>
+            <h4 className="font-medium text-yellow-900 mb-2">Teacher Notes:</h4>
+            <p className="text-yellow-800 text-sm">{assignment.teacherNotes}</p>
           </div>
         )}
 
         {/* Warning for expired assignments */}
         {isExpired && (
           <div className="flex items-center space-x-2 text-danger-600 bg-danger-50 p-3 rounded-lg">
-            <ExclamationIcon className="h-5 w-5" />
+            <ExclamationCircleIcon className="h-5 w-5" />
             <span className="text-sm font-medium">
               This assignment has expired
             </span>

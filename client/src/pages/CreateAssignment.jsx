@@ -144,9 +144,9 @@ const CreateAssignment = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="card">
+      <div className="card ">
         <div className="card-header">
-          <h2 className="text-2xl font-bold text-gray-900">Create New Assignment</h2>
+          <h2 className="text-2xl font-bold text-gray-900 ">Create New Assignment</h2>
           <p className="text-gray-600 mt-1">
             Create a new assignment for your students with files and instructions
           </p>

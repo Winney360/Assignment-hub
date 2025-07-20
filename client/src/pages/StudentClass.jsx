@@ -89,11 +89,11 @@ const StudentClass = () => {
   if (error) {
     return (
       <div className="text-center space-y-4">
-        <div className="card">
+        <div className="card dark:bg-gray-800 dark:border-gray-700">
           <ExclamationCircleIcon className="h-16 w-16 text-danger-500 mx-auto mb-4" />
-          <h2 className="text-xl font-bold text-gray-900 mb-2">Class Not Found</h2>
-          <p className="text-gray-600 mb-4">
-            We couldn't find a class with passcode "{passcode}". 
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Class Not Found</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
+            We couldn't find a class with passcode "{passcode}".
             Please check the passcode and try again.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4">
@@ -117,51 +117,51 @@ const StudentClass = () => {
   return (
     <div className="space-y-8">
       {/* Class Header */}
-      <div className="card">
+      <div className="card dark:bg-gray-800 dark:border-gray-700">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {classInfo.name}
             </h1>
             <div className="flex items-center space-x-4 mt-2">
-              <span className="text-lg text-gray-600">{classInfo.subject}</span>
-              <span className="text-sm text-gray-500">•</span>
-              <span className="text-sm text-gray-500">
+              <span className="text-lg text-gray-600 dark:text-gray-300">{classInfo.subject}</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400">•</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400">
                 Teacher: {classInfo.teacher}
               </span>
             </div>
             <div className="flex items-center space-x-2 mt-3">
-              <span className="text-sm text-gray-600">Passcode:</span>
-              <span className="text-lg font-bold text-primary-600 bg-primary-100 px-3 py-1 rounded-lg">
+              <span className="text-sm text-gray-600 dark:text-gray-300">Passcode:</span>
+              <span className="text-lg font-bold text-primary-600 bg-primary-100 dark:bg-primary-900 dark:text-primary-300 px-3 py-1 rounded-lg">
                 {classInfo.passcode}
               </span>
             </div>
           </div>
-          
+
           <div className="flex items-center space-x-2">
             <button
               onClick={handleBookmark}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 isBookmarked 
-                  ? 'bg-warning-100 text-warning-600 hover:bg-warning-200' 
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-warning-100 text-warning-600 hover:bg-warning-200 dark:bg-warning-800 dark:text-yellow-400' 
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200'
               }`}
               title={isBookmarked ? 'Remove bookmark' : 'Bookmark this class'}
             >
               <BookmarkIcon className={`h-5 w-5 ${isBookmarked ? 'fill-current' : ''}`} />
             </button>
-            
+
             <button
               onClick={handleShare}
-              className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-200"
+              className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 transition-colors duration-200"
               title="Share this class"
             >
               <ShareIcon className="h-5 w-5" />
             </button>
-            
+
             <button
               onClick={() => setShowQR(!showQR)}
-              className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-200"
+              className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 transition-colors duration-200"
               title="Show QR code"
             >
               <QrCodeIcon className="h-5 w-5" />
@@ -171,15 +171,15 @@ const StudentClass = () => {
 
         {/* QR Code */}
         {showQR && (
-          <div className="mt-6 pt-6 border-t border-gray-200">
+          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-600">
             <div className="flex flex-col items-center space-y-4">
-              <h3 className="text-lg font-medium text-gray-900">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                 QR Code for Quick Access
               </h3>
-              <div className="p-4 bg-white rounded-lg shadow-sm border">
+              <div className="p-4 bg-white dark:bg-gray-900 rounded-lg shadow-sm border dark:border-gray-600">
                 <QRCode value={window.location.href} size={200} />
               </div>
-              <p className="text-sm text-gray-600 text-center max-w-sm">
+              <p className="text-sm text-gray-600 dark:text-gray-400 text-center max-w-sm">
                 Share this QR code with other students to give them quick access to this class
               </p>
             </div>
@@ -190,23 +190,23 @@ const StudentClass = () => {
       {/* Assignments */}
       <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             Assignments ({assignments.length})
           </h2>
           {assignments.length > 0 && (
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-600 dark:text-gray-300">
               {assignments.filter(a => new Date(a.deadline) > new Date()).length} active assignments
             </div>
           )}
         </div>
 
         {assignments.length === 0 ? (
-          <div className="card text-center">
+          <div className="card text-center dark:bg-gray-800 dark:border-gray-700">
             <BookmarkIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
               No assignments available
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Your teacher hasn't posted any assignments yet. Check back later!
             </p>
           </div>
@@ -224,11 +224,11 @@ const StudentClass = () => {
       </div>
 
       {/* Help Section */}
-      <div className="card bg-blue-50 border-blue-200">
-        <h3 className="text-lg font-medium text-blue-900 mb-4">
+      <div className="card bg-blue-50 dark:bg-blue-900 border-blue-200 dark:border-blue-700">
+        <h3 className="text-lg font-medium text-blue-900 dark:text-blue-100 mb-4">
           Need Help?
         </h3>
-        <div className="space-y-2 text-sm text-blue-800">
+        <div className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
           <p>• Bookmark this class to save it for quick access later</p>
           <p>• Share the passcode or QR code with your classmates</p>
           <p>• Check back regularly for new assignments</p>

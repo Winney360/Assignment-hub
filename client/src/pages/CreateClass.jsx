@@ -46,20 +46,10 @@ const CreateClass = () => {
 
   const validateForm = () => {
     const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Class name is required';
-    }
-
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
-    }
-
-    if (!formData.passcode.trim()) {
-      newErrors.passcode = 'Passcode is required';
-    } else if (formData.passcode.length < 4) {
-      newErrors.passcode = 'Passcode must be at least 4 characters';
-    }
+    if (!formData.name.trim()) newErrors.name = 'Class name is required';
+    if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
+    if (!formData.passcode.trim()) newErrors.passcode = 'Passcode is required';
+    else if (formData.passcode.length < 4) newErrors.passcode = 'Passcode must be at least 4 characters';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -68,18 +58,13 @@ const CreateClass = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
     createClassMutation.mutate(formData);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const handleGeneratePasscode = () => {
@@ -87,18 +72,18 @@ const CreateClass = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className="card">
-        <div className="card-header">
-          <h2 className="text-2xl font-bold text-gray-900">Create New Class</h2>
-          <p className="text-gray-600 mt-1">
+    <div className="max-w-2xl mx-auto px-4">
+      <div className="bg-white dark:bg-zinc-900 shadow-md rounded-xl p-6">
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Create New Class</h2>
+          <p className="text-gray-600 dark:text-gray-300 mt-1">
             Set up a new class for your students with a unique passcode
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="form-label">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
               Class Name
             </label>
             <input
@@ -106,23 +91,23 @@ const CreateClass = () => {
               name="name"
               type="text"
               required
-              className="form-input"
+              className="mt-1 w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-zinc-800 dark:text-white shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 dark:focus:border-blue-400"
               placeholder="e.g., Form 4 East, Chemistry Class"
               value={formData.name}
               onChange={handleChange}
             />
-            {errors.name && <p className="form-error">{errors.name}</p>}
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
 
           <div>
-            <label htmlFor="subject" className="form-label">
+            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
               Subject
             </label>
             <select
               id="subject"
               name="subject"
               required
-              className="form-input"
+              className="mt-1 w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-zinc-800 dark:text-white shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 dark:focus:border-blue-400"
               value={formData.subject}
               onChange={handleChange}
             >
@@ -143,20 +128,20 @@ const CreateClass = () => {
               <option value="Physical Education">Physical Education</option>
               <option value="Other">Other</option>
             </select>
-            {errors.subject && <p className="form-error">{errors.subject}</p>}
+            {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
           </div>
 
           <div>
-            <label htmlFor="passcode" className="form-label">
+            <label htmlFor="passcode" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
               Class Passcode
             </label>
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 mt-1">
               <input
                 id="passcode"
                 name="passcode"
                 type="text"
                 required
-                className="form-input flex-1"
+                className="flex-1 rounded-md border-gray-300 dark:border-gray-700 dark:bg-zinc-800 dark:text-white shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 dark:focus:border-blue-400"
                 placeholder="Enter unique passcode"
                 value={formData.passcode}
                 onChange={handleChange}
@@ -167,21 +152,21 @@ const CreateClass = () => {
                 type="button"
                 onClick={handleGeneratePasscode}
                 disabled={generatePasscodeMutation.isLoading}
-                className="btn-outline flex items-center space-x-2"
+                className="inline-flex items-center px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-50 dark:hover:bg-zinc-700 dark:text-blue-400"
               >
-                <ArrowPathIcon className={`h-4 w-4 ${generatePasscodeMutation.isLoading ? 'animate-spin' : ''}`} />
-                <span>Generate</span>
+                <ArrowPathIcon className={`h-4 w-4 mr-1 ${generatePasscodeMutation.isLoading ? 'animate-spin' : ''}`} />
+                Generate
               </button>
             </div>
-            {errors.passcode && <p className="form-error">{errors.passcode}</p>}
-            <p className="text-sm text-gray-600 mt-1">
+            {errors.passcode && <p className="text-red-500 text-sm mt-1">{errors.passcode}</p>}
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
               Students will use this passcode to access the class. Keep it simple and memorable.
             </p>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-medium text-blue-900 mb-2">Class Preview</h3>
-            <div className="text-sm text-blue-800 space-y-1">
+          <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+            <h3 className="font-medium text-blue-900 dark:text-blue-300 mb-2">Class Preview</h3>
+            <div className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
               <p><strong>Name:</strong> {formData.name || 'Class name will appear here'}</p>
               <p><strong>Subject:</strong> {formData.subject || 'Subject will appear here'}</p>
               <p><strong>Passcode:</strong> {formData.passcode || 'Passcode will appear here'}</p>

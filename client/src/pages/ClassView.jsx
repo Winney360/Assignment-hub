@@ -184,7 +184,7 @@ const ClassView = () => {
 
         {!assignments || assignments.length === 0 ? (
           <div className="card text-center">
-            <ClipboardListIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+            <ClipboardDocumentListIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">
               No assignments yet
             </h3>
