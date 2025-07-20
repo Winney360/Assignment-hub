@@ -16,7 +16,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-const allowedOrigins = ['https://assignment-hub-eight.vercel.app/'];
+const allowedOrigins = [
+  'https://assignment-hub-eight.vercel.app',
+  'http://localhost:5173' // for local dev
+];
 
 app.use(cors({
   origin: function (origin, callback) {
