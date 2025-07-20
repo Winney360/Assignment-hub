@@ -3,6 +3,10 @@
     {
       "source": "/api/(.*)",
       "destination": "https://assignment-hub.onrender.com/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
     }
   ],
   "redirects": [],
