@@ -76,18 +76,18 @@ const ClassView = () => {
       <div className="card">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {classData.name}
             </h1>
             <div className="flex items-center space-x-4 mt-2">
-              <span className="text-lg text-gray-600">{classData.subject}</span>
-              <span className="text-sm text-gray-500">•</span>
-              <span className="text-sm text-gray-500">
+              <span className="text-lg text-gray-600  dark:text-gray-400">{classData.subject}</span>
+              <span className="text-sm text-gray-500 ">•</span>
+              <span className="text-sm text-gray-500  dark:text-gray-400">
                 Created {new Date(classData.createdAt).toLocaleDateString()}
               </span>
             </div>
             <div className="flex items-center space-x-2 mt-3">
-              <span className="text-sm text-gray-600">Student Access Code:</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">Student Access Code:</span>
               <span className="text-lg font-bold text-primary-600 bg-primary-100 px-3 py-1 rounded-lg">
                 {classData.passcode}
               </span>
@@ -130,8 +130,8 @@ const ClassView = () => {
               <ClipboardDocumentListIcon className="h-6 w-6 text-primary-600" />
             </div>
             <div className="ml-4">
-              <p className="text-sm text-gray-600">Total Assignments</p>
-              <p className="text-2xl font-bold text-gray-900">{assignments?.length || 0}</p>
+              <p className="text-sm text-gray-600  dark:text-gray-100">Total Assignments</p>
+              <p className="text-2xl font-bold text-gray-900  dark:text-gray-400">{assignments?.length || 0}</p>
             </div>
           </div>
         </div>
@@ -142,8 +142,8 @@ const ClassView = () => {
               <ClipboardDocumentListIcon className="h-6 w-6 text-accent-600" />
             </div>
             <div className="ml-4">
-              <p className="text-sm text-gray-600">Active Assignments</p>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-sm text-gray-600 dark:text-gray-100">Active Assignments</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-gray-400">
                 {assignments?.filter(a => {
                   const now = new Date();
                   return new Date(a.availableFrom) <= now && new Date(a.expiresAt) >= now;
@@ -159,8 +159,8 @@ const ClassView = () => {
               <ClipboardDocumentListIcon className="h-6 w-6 text-warning-600" />
             </div>
             <div className="ml-4">
-              <p className="text-sm text-gray-600">Expired Assignments</p>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-sm text-gray-600 dark:text-gray-100">Expired Assignments</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-gray-400">
                 {assignments?.filter(a => new Date(a.expiresAt) < new Date()).length || 0}
               </p>
             </div>
@@ -171,7 +171,7 @@ const ClassView = () => {
       {/* Assignments */}
       <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             Assignments ({assignments?.length || 0})
           </h2>
           <Link
@@ -213,13 +213,13 @@ const ClassView = () => {
 
       {/* Student Access Info */}
       <div className="card bg-blue-50 border-blue-200">
-        <h3 className="text-lg font-medium text-blue-900 mb-4">
+        <h3 className="text-lg font-medium text-blue-900 mb-4 dark:text-blue-100">
           Student Access Information
         </h3>
-        <div className="space-y-3 text-sm text-blue-800">
+        <div className="space-y-3 text-sm text-blue-800 ">
           <div className="flex items-start space-x-3">
             <span className="font-medium">Passcode:</span>
-            <span className="font-mono text-lg bg-blue-100 px-2 py-1 rounded">
+            <span className="font-mono text-lg bg-blue-100 px-2 py-1 rounded ">
               {classData.passcode}
             </span>
           </div>
