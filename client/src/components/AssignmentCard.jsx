@@ -115,9 +115,9 @@ const AssignmentCard = ({ assignment, isStudent = false, onDelete }) => {
 
         {/* Teacher Notes (only for teachers) */}
         {!isStudent && assignment.teacherNotes && (
-          <div className="bg-yellow-50 p-4 rounded-lg">
-            <h4 className="font-medium text-yellow-900 mb-2">Teacher Notes:</h4>
-            <p className="text-yellow-800 text-sm">{assignment.teacherNotes}</p>
+          <div className="bg-yellow-50 p-4 rounded-lg dark:bg-gray-900">
+            <h4 className="font-medium text-yellow-900 mb-2 dark:text-yellow-500">Teacher Notes:</h4>
+            <p className="text-yellow-800 text-sm dark:text-yellow-700">{assignment.teacherNotes}</p>
           </div>
         )}
 
