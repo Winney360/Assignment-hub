@@ -4,12 +4,14 @@ import { useAuth } from '../contexts/AuthContext';
 import LoadingSpinner from './LoadingSpinner';
 
 const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, loading } = useAuth();
+  const { isAuthenticated, loadingAuth } = useAuth();
 
-  if (loading) {
+  // ⏳ Wait until token verification is complete before deciding
+  if (loadingAuth) {
     return <LoadingSpinner />;
   }
 
+  // ✅ Redirect only if not authenticated
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
 

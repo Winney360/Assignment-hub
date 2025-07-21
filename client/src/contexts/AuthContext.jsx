@@ -18,6 +18,8 @@ const authReducer = (state, action) => {
       return { ...state, error: null };
     default:
       return state;
+    case 'AUTH_CHECK_COMPLETE':
+       return { ...state, loadingAuth: false };
   }
 };
 
@@ -26,7 +28,8 @@ export const AuthProvider = ({ children }) => {
     user: null,
     isAuthenticated: false,
     loading: false,
-    error: null
+    error: null,
+    loadingAuth: true,
   });
 
   // Set up axios interceptor
@@ -36,6 +39,8 @@ export const AuthProvider = ({ children }) => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       // Verify token on app load
       verifyToken();
+    } else {
+    dispatch({ type: 'AUTH_CHECK_COMPLETE' }); // If no token, still mark as done
     }
   }, []);
 
@@ -47,6 +52,8 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem('token');
       delete axios.defaults.headers.common['Authorization'];
       dispatch({ type: 'LOGOUT' });
+    }finally {
+    dispatch({ type: 'AUTH_CHECK_COMPLETE' });
     }
   };
 
