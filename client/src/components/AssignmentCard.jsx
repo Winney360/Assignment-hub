@@ -4,7 +4,7 @@ import {
   ClockIcon,
   ArrowDownTrayIcon,
   ExclamationCircleIcon,
-  TrashIcon, // ✅ added
+  TrashIcon, 
 } from '@heroicons/react/24/outline';
 import CountdownTimer from './CountdownTimer';
 import axios from 'axios';
@@ -67,22 +67,22 @@ const AssignmentCard = ({ assignment, isStudent = false, onDelete }) => {
       <div className="card-header">
         <div className="flex justify-between items-start">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
               {assignment.title}
             </h3>
-            <p className="text-sm text-gray-600">{assignment.subject}</p>
+            <p className="text-sm text-gray-600 dark:text-white">{assignment.subject}</p>
           </div>
           {getStatusBadge()}
         </div>
       </div>
 
       <div className="space-y-4">
-        <p className="text-gray-700">{assignment.description}</p>
+        <p className="text-gray-700 dark:text-white">{assignment.description}</p>
 
         {/* Deadline Info */}
         <div className="flex items-center space-x-2 text-sm text-gray-600">
-          <ClockIcon className="h-4 w-4" />
-          <span>Due: {format(deadline, 'PPP p')}</span>
+          <ClockIcon className="h-4 w-4 dark:text-white" />
+          <span className="dark:text-white">Due: {format(deadline, 'PPP p')}</span>
         </div>
 
         {/* Countdown Timer */}
@@ -103,11 +103,11 @@ const AssignmentCard = ({ assignment, isStudent = false, onDelete }) => {
 
         {/* Submission Instructions */}
         {assignment.submissionInstructions && (
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <h4 className="font-medium text-blue-900 mb-2">
+          <div className="bg-blue-50 p-4 rounded-lg dark:bg-gray-900">
+            <h4 className="font-medium text-blue-900 mb-2 dark:text-white">
               Submission Instructions:
             </h4>
-            <p className="text-blue-800 text-sm">
+            <p className="text-blue-800 text-sm dark:text-blue-500">
               {assignment.submissionInstructions}
             </p>
           </div>

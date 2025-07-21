@@ -46,7 +46,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <BookOpenIcon className="h-8 w-8 text-primary-600 dark:text-primary-400" />
-            <span className="text-xl font-bold gradient-bg bg-clip-text text-transparent dark:text-white">
+            <span className="text-xl font-bold gradient-bg bg-clip-text text-aqua dark:text-white">
               AssignmentHub
             </span>
           </Link>
