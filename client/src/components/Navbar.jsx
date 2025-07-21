@@ -45,8 +45,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <BookOpenIcon className="h-8 w-8 text-primary-600 dark:text-primary-400" />
-            <span className="text-xl font-bold gradient-bg bg-clip-text text-aqua dark:text-white">
+            <BookOpenIcon className="h-8 w-8 text-purple-600 dark:text-purple-600" />
+            <span className="text-xl font-bold gradient-bg bg-clip-text text-aqua dark:text-black">
               AssignmentHub
             </span>
           </Link>

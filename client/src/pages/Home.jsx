@@ -130,7 +130,7 @@ const Home = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* For Teachers */}
           <div>
-            <h3 className="text-2xl font-semibold text-primary-600 mb-6">
+            <h3 className="text-2xl font-semibold text-primary-600 mb-6 dark:text-white">
               For Teachers
             </h3>
             <div className="space-y-4">
@@ -162,7 +162,7 @@ const Home = () => {
 
           {/* For Students */}
           <div>
-            <h3 className="text-2xl font-semibold text-secondary-600 mb-6">
+            <h3 className="text-2xl font-semibold text-secondary-600 mb-6  dark:text-white">
               For Students
             </h3>
             <div className="space-y-4">
@@ -195,7 +195,7 @@ const Home = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="text-center gradient-bg dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 md:p-12 text-white">
+      <div className="text-center gradient-bg bg-white dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 md:p-12 text-black dark:text-white">
         <h2 className="text-3xl font-bold mb-4">
           Ready to Get Started?
         </h2>
