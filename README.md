@@ -2,7 +2,8 @@
 
 A complete full-stack MERN application designed for Kenyan high school teachers to share assignments with students during holidays. Features a modern light blue and purple theme with production-ready UI components.
 
-![AssignmentHub Banner](https://via.placeholder.com/800x200/3B82F6/FFFFFF?text=AssignmentHub+-+Holiday+Assignment+Platform)
+# Deployment link:
+*https://assignment-hub-eight.vercel.app*
 
 ## 🌟 Features
 
