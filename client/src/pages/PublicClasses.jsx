@@ -39,16 +39,16 @@ const PublicClasses = () => {
   if (error) {
     return (
       <div className="text-center">
-        <div className="card">
-          <h2 className="text-xl font-bold text-danger-600 mb-2">
+        <div className="card bg-white dark:bg-gray-800">
+          <h2 className="text-xl font-bold text-danger-600 dark:text-danger-400 mb-2">
             Unable to Load Classes
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
             There was an error loading the public classes. Please try again later.
           </p>
           <button 
             onClick={() => window.location.reload()}
-            className="btn-primary"
+            className="btn-primary dark:bg-primary-600 dark:hover:bg-primary-700 dark:text-white"
           >
             Try Again
           </button>
@@ -76,57 +76,57 @@ const PublicClasses = () => {
     <div className="space-y-8">
       {/* Header */}
       <div className="text-center space-y-4">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
           Public Classes
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Browse all available classes or enter a passcode to access a specific class directly
         </p>
       </div>
 
       {/* Quick Access */}
-      <div className="card">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+      <div className="card bg-white dark:bg-gray-800">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
           Quick Access
         </h2>
         <form onSubmit={handleQuickAccess} className="flex space-x-4">
           <div className="flex-1 relative">
-            <KeyIcon className="h-5 w-5 text-gray-400 absolute left-3 top-3" />
+            <KeyIcon className="h-5 w-5 text-gray-400 dark:text-gray-500 absolute left-3 top-3" />
             <input
               type="text"
               placeholder="Enter class passcode (e.g., ABC123)"
               value={passcodeInput}
               onChange={(e) => setPasscodeInput(e.target.value.toUpperCase())}
-              className="form-input pl-10"
+              className="form-input pl-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
               maxLength={8}
             />
           </div>
-          <button type="submit" className="btn-primary">
+          <button type="submit" className="btn-primary dark:bg-primary-600 dark:hover:bg-primary-700 dark:text-white">
             Go to Class
           </button>
         </form>
       </div>
 
       {/* Filters */}
-      <div className="card">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+      <div className="card bg-white dark:bg-gray-800">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
           Browse All Classes
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="relative">
-            <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute left-3 top-3" />
+            <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 dark:text-gray-500 absolute left-3 top-3" />
             <input
               type="text"
               placeholder="Search classes, teachers, or passcodes..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="form-input pl-10"
+              className="form-input pl-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
             />
           </div>
           <select
             value={selectedSubject}
             onChange={(e) => setSelectedSubject(e.target.value)}
-            className="form-input"
+            className="form-input dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           >
             <option value="">All Subjects</option>
             {subjects.map(subject => (
@@ -139,12 +139,12 @@ const PublicClasses = () => {
       {/* Classes Grid */}
       <div className="space-y-6">
         {filteredClasses.length === 0 ? (
-          <div className="card text-center">
-            <AcademicCapIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">
+          <div className="card bg-white dark:bg-gray-800 text-center">
+            <AcademicCapIcon className="h-12 w-12 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
               {classes?.length === 0 ? 'No classes available' : 'No classes found'}
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               {classes?.length === 0 
                 ? 'Teachers haven\'t created any classes yet. Check back later!'
                 : 'Try adjusting your search or filter criteria.'
@@ -154,7 +154,7 @@ const PublicClasses = () => {
         ) : (
           <>
             <div className="flex justify-between items-center">
-              <h3 className="text-lg font-medium text-gray-900">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                 {filteredClasses.length} {filteredClasses.length === 1 ? 'class' : 'classes'} found
               </h3>
             </div>
@@ -173,11 +173,11 @@ const PublicClasses = () => {
       </div>
 
       {/* Help Section */}
-      <div className="card bg-green-50 border-green-200">
-        <h3 className="text-lg font-medium text-green-900 mb-4">
+      <div className="card bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800">
+        <h3 className="text-lg font-medium text-green-900 dark:text-green-300 mb-4">
           How to Access Classes
         </h3>
-        <div className="space-y-2 text-sm text-green-800">
+        <div className="space-y-2 text-sm text-green-800 dark:text-green-300">
           <p><strong>Method 1:</strong> Enter the passcode your teacher gave you in the Quick Access box above</p>
           <p><strong>Method 2:</strong> Browse through all available classes and click "View Assignments"</p>
           <p><strong>Method 3:</strong> If you have a QR code, scan it with your phone camera</p>
